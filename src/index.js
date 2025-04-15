@@ -82,8 +82,8 @@ function getParsedUrl (url) {
     const parsedURL = spotifyURI.parse(url)
     if (!parsedURL.type) throw new TypeError()
     return spotifyURI.formatEmbedURL(parsedURL)
-  } catch (_) {
-    throw new TypeError(`Couldn't parse '${url}' as valid URL`)
+  } catch (e) {
+    throw new TypeError(`Couldn't parse '${url}' as valid URL, ${e}`)
   }
 }
 
